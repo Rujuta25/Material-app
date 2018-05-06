@@ -1,0 +1,98 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Material Design</span>
+      <span class="example-spacer"></span>
+      <button mat-button> About </button>
+      <button mat-button> Services </button>
+      <button mat-button> Contact </button>
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
+
+    <mat-card>
+            
+                    <mat-form-field>
+                      <input matInput placeholder="What's your favorite hobby?" [(ngModel)]="answer">
+                    </mat-form-field>
+                  
+                    <br>
+                    <button mat-raised-button (click) = "showAnswer()"> Answer me </button>
+                    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+               
+        </mat-card>
+
+        <mat-card *ngIf="answerDisplay">
+            <h1> {{ answerDisplay}}, that sounds totally cool!!</h1>
+
+            </mat-card>
+     
+            <mat-card>
+            <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Personal data
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Type your name and age
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="First name">
+                      </mat-form-field>
+                      <mat-form-field>
+                            <input matInput placeholder="Last name">
+                          </mat-form-field>
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="Age">
+                      </mat-form-field>
+                    </mat-expansion-panel>                   
+                  </mat-accordion>
+           </mat-card>
+                 
+              <mat-card>
+                      <mat-accordion>
+                          <mat-expansion-panel>
+                              <mat-expansion-panel-header>
+                      <mat-panel-title>
+                          Location Details
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Type your location and occupation
+                          </mat-panel-description>
+                              </mat-expansion-panel-header>
+                        <br>
+                        <mat-form-field>
+                                <input matInput value="New York" placeholder="Location" #message>
+                              </mat-form-field>
+                              
+                              <mat-form-field>
+                                <input matInput value="Artist" placeholder="Occupation" #action>
+                              </mat-form-field>
+                              
+                              <button mat-button (click)="openSnackBar(message.value, action.value)">Show Snack-Bar</button>
+
+                              <mat-selection-list #party>
+                                <mat-list-option *ngFor="let item of typesOfItems">
+                                  {{item}}
+                                </mat-list-option>
+                              </mat-selection-list>
+                              
+                              <p>
+                                Options selected: {{party.selectedOptions.selected.length}}
+                              </p>
+                            </mat-expansion-panel> 
+                            </mat-accordion>
+                  </mat-card>
+                  
+
+                  
+                  
+
+
+                 
+                              
+                 
